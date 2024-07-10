@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="jumbotron text-center">
+    <h1 class="display-4">Welcome to Saveetha School of Law Journal</h1>
+    <p class="lead">A platform for legal scholars to publish their research.</p>
+    <a class="btn btn-primary btn-lg" href="/submissions" role="button">Submit Your Paper</a>
+</div>
+<div class="row mt-5">
+    <div class="col-md-4">
+        <h3>About Us</h3>
+        <p>Learn more about our journal, mission, and editorial board.</p>
+        <a href="/about" class="btn btn-secondary">Read More</a>
+    </div>
+    <div class="col-md-4">
+        <h3>Submissions</h3>
+        <p>Find out how to submit your research paper and our submission guidelines.</p>
+        <a href="/submissions" class="btn btn-secondary">Learn More</a>
+    </div>
+    <div class="col-md-4">
+        <h3>Contact</h3>
+        <p>Get in touch with us for any queries or further information.</p>
+        <a href="/contact" class="btn btn-secondary">Contact Us</a>
+    </div>
+</div>
+
+<!-- Display fetched articles -->
+<div class="row mt-5">
+    {% for article in articles %}
+    <div class="col-md-6">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">{{ article.title }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ article.author }}</h6>
+                <p class="card-text">{{ article.summary }}</p>
+                <!-- Add more details as needed -->
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
